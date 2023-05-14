@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs';
 import { AutentificacionService } from 'src/app/services/autentificacion.service';
@@ -41,21 +41,29 @@ export class RegistroComponent implements OnInit {
           cancelButtonText: 'No, me he equivocado'
         }).then((result: { isConfirmed: any; }) => {
           if (result.isConfirmed) {
-            this.authService.registro( nombre, email, password ).subscribe(respuesta => {
-            console.log(respuesta)
-            sessionStorage.setItem('usuario',email);
-            this.emailService.enviarEmailRegistro(nombre, email).subscribe( respEmail =>{
-                console.log(respEmail)
-            })
-            Swal.fire({
-              text:'Te has registrado correctamente',
-              icon: 'success'
-            })
+            this.authService.registro( nombre, email, password ).subscribe((response: any) => {
+              console.log(response)
+              if (response.correcto == true){
+                sessionStorage.setItem('usuario',email);
+                this.emailService.enviarEmailRegistro(nombre, email).subscribe( respEmail =>{
+                    console.log(respEmail)
+                })
+                Swal.fire({
+                  text:'Te has registrado correctamente',
+                  icon: 'success'
+                })
+
+              } else {
+                Swal.fire({
+                  text:'Error en el registro',
+                  icon: 'error'
+                })
+              }
             } )
 
           }
         })
-      };
+  };
 
 
 }

@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, of } from 'rxjs';
-import { AuthResponse } from '../interfaces/Authresponse';
 import { HttpHeaders } from '@angular/common/http';
+import { RespuestaDTO } from '../interfaces/RespuestaDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -22,5 +22,18 @@ export class AutentificacionService {
     return this.http.post<any>( url, body)
 
 
+  }
+
+  login( email: string, password: string ) {
+
+    const url  = `${ this.baseUrl }/login`;
+    const body = { email, password };
+
+    return this.http.post<RespuestaDTO>( url, body )
+
+  }
+
+  estaAutenticado(): boolean {
+    return sessionStorage.getItem('usuario') != null
   }
 }

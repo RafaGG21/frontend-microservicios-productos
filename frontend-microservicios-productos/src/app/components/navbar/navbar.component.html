@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Mi Sitio</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Ver</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  routerLink="/TodosProductos">Productos</a>
+      </li>
+      <li class="nav-item dropdown" *ngIf="!estaAutenticado()">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Acceder
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" routerLink="/registro">Registro</a>
+          <a class="dropdown-item" routerLink="/login">Login</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  (click)="cerrarSesion()" *ngIf="estaAutenticado()">Cerrar sesión</a>
+      </li>
+    </ul>
+  </div>
+</nav>
