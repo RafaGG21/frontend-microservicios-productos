@@ -29,6 +29,9 @@ export class RegistroComponent implements OnInit {
   }
 
   registro() {
+    if (this.registerForm.invalid) {
+      return;
+    }
     const { nombre, email, password } = this.registerForm.value;
 
         Swal.fire({
