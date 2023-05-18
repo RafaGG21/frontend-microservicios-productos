@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AutentificacionService } from 'src/app/services/autentificacion.service';
+import { EmailService } from 'src/app/services/email.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
               private authService: AutentificacionService,
-              private router: Router) { }
+              private router: Router,
+              private emailService :EmailService) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -60,4 +62,6 @@ export class LoginComponent implements OnInit {
           }
         })
   }
+
+
 }

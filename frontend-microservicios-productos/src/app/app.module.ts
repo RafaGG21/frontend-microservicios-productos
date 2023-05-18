@@ -12,6 +12,8 @@ import { ProductoComponent } from './components/producto/producto.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { LoginComponent } from './pages/login/login.component';
 import { PanelUsuarioComponent } from './pages/panel-usuario/panel-usuario.component';
+import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
+import { CambiarPasswordComponent } from './pages/cambiar-password/cambiar-password.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { PanelUsuarioComponent } from './pages/panel-usuario/panel-usuario.compo
     TodosProductosComponent,
     ProductoComponent,
     LoginComponent,
-    PanelUsuarioComponent
+    PanelUsuarioComponent,
+    ResetPasswordComponent,
+    CambiarPasswordComponent
   ],
   imports: [
     NgxPaginationModule,

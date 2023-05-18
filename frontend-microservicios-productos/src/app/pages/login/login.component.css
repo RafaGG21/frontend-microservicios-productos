@@ -30,3 +30,9 @@ button {
   align-items: center;
   justify-content: center;
 }
+
+.centered {
+  width: 400px; /* Establece un ancho fijo para el <p> */
+  margin: 0 auto; /* Centra horizontalmente utilizando margen automático */
+  margin-top: 50px;
+}
