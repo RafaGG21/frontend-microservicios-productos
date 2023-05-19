@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs';
-
+import { IRespuesta } from '../interfaces/IRespuesta';
 @Injectable({
   providedIn: 'root'
 })
@@ -15,13 +14,13 @@ export class EmailService {
     const url  = `${ this.baseUrl }/registrado`;
     const body = { email, nombre, password };
 
-    return this.http.post<any>( url, body )
+    return this.http.post<IRespuesta>( url, body )
   }
 
   enviarEmailRestablecerPassword(email: string){
     const url  = `${ this.restablecerUrl }/request`;
     const body = { email};
 
-    return this.http.post<any>( url, body )
+    return this.http.post<IRespuesta>( url, body )
   }
 }
