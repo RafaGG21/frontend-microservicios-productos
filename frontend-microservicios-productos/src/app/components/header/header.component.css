@@ -1,0 +1,68 @@
+/* Estilos para la navegación */
+nav {
+  background-color: #333; /* Color de fondo de la barra de navegación */
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+nav ul li {
+  margin-right: 1rem; /* Separación entre elementos de la barra de navegación */
+}
+
+nav ul li a {
+  display: block;
+  color: rgb(0, 0, 0); /* Color del texto de los enlaces */
+  text-decoration: none;
+  padding: 0.5rem;
+}
+
+nav ul li a:hover {
+  background-color: rgb(12, 11, 11); /* Color de fondo de los enlaces al pasar el mouse por encima */
+  color:white;
+}
+
+/* Estilos para el menú desplegable */
+nav .dropdown {
+  position: relative;
+}
+
+nav .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff; /* Color de fondo del menú desplegable */
+  padding: 0.5rem;
+}
+
+nav .dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+nav .dropdown-menu a {
+  display: block;
+  color: #333; /* Color del texto de las opciones del menú desplegable */
+  text-decoration: none;
+  padding: 0.5rem;
+}
+
+nav .dropdown-menu a:hover {
+  background-color: #eee; /* Color de fondo de las opciones del menú desplegable al pasar el mouse por encima */
+}
+
+.dropdown-item.dark-color{
+  color: black;
+}
+
+.position-fixed{
+
+}
+
+.color-navbar{
+  color:rgb(196, 209, 192)
+}

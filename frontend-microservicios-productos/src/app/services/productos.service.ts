@@ -12,4 +12,8 @@ export class ProductosService {
   getProductos() {
     return this.http.get(`${this.baseUrl}/listar`)
   };
+
+  getProductosPorGenero(genero:string) {
+    return this.http.get(`${this.baseUrl}/por-genero/${genero}`)
+  };
 }

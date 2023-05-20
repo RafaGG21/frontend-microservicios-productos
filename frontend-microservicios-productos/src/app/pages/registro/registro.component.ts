@@ -33,7 +33,6 @@ export class RegistroComponent implements OnInit {
       return;
     }
     const { nombre, email, password } = this.registerForm.value;
-
         Swal.fire({
           title: '¿Son tus datos de registro correctos?',
           icon: 'warning',
@@ -45,17 +44,14 @@ export class RegistroComponent implements OnInit {
         }).then((result: { isConfirmed: any; }) => {
           if (result.isConfirmed) {
             this.authService.registro( nombre, email, password ).subscribe((response: any) => {
-              console.log(response)
               if (response.correcto == true){
                 sessionStorage.setItem('usuario',email);
                 this.emailService.enviarEmailRegistro(nombre, email).subscribe( respEmail =>{
-                    console.log(respEmail)
                 })
                 Swal.fire({
                   text:'Te has registrado correctamente',
                   icon: 'success'
                 })
-
               } else {
                 Swal.fire({
                   text:'Error en el registro',

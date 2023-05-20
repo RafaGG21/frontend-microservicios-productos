@@ -11,6 +11,9 @@ import { PanelUsuarioComponent } from '../pages/panel-usuario/panel-usuario.comp
 import { AuthGuard } from '../guards/auth.guard';
 import { CambiarPasswordComponent } from '../pages/cambiar-password/cambiar-password.component';
 
+import { HomeComponent } from '../home/home.component';
+
+
 const routes: Routes = [
   { path: 'registro', component: RegistroComponent },
   { path: 'login', component: LoginComponent },
@@ -18,7 +21,9 @@ const routes: Routes = [
   { path: 'TodosProductos', component: TodosProductosComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
   { path: 'cambiar-password', component: CambiarPasswordComponent },
-  { path: '', redirectTo: 'registro', pathMatch: 'full' }
+  { path: 'genero/:genero', component: TodosProductosComponent },
+  { path: 'home', component: HomeComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full', }
 ];
 
 @NgModule({
