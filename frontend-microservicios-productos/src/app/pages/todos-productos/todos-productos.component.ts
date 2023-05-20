@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./todos-productos.component.css']
 })
 export class TodosProductosComponent implements OnInit {
-  genero!: string
+  genero: string | undefined
   productos!: any;
   page = 1; // Página actual
   constructor( private productosService : ProductosService,
@@ -20,9 +20,14 @@ export class TodosProductosComponent implements OnInit {
   ngOnInit() :void {
       this.route.params.subscribe(params => {
         this.genero = params['genero'];
+        if (this.genero === null || this.genero === undefined){
+          this.productosService.getProductos().subscribe(
+            productos => this.productos = productos)
+        } else {
+          this.productosService.getProductosPorGenero(this.genero).subscribe(
+          productos => this.productos = productos)
 
-      this.productosService.getProductosPorGenero(this.genero).subscribe(
-      productos => this.productos = productos)
+        }
     })
   }
 

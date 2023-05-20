@@ -19,6 +19,14 @@ import { CambiarPasswordComponent } from './pages/cambiar-password/cambiar-passw
 import { HomeComponent } from './home/home.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { MatCardModule } from '@angular/material/card';
+
+import { MatInputModule } from '@angular/material/input';
+import { VerProductoComponent } from './pages/ver-producto/ver-producto.component'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +39,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PanelUsuarioComponent,
     ResetPasswordComponent,
     CambiarPasswordComponent,
-    HeaderComponent
+    HeaderComponent,
+    VerProductoComponent
   ],
   imports: [
     NgxPaginationModule,
@@ -40,9 +49,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-
-    BrowserAnimationsModule
-
+    MatAutocompleteModule,
+    MatCardModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]

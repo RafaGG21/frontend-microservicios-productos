@@ -12,6 +12,7 @@ import { AuthGuard } from '../guards/auth.guard';
 import { CambiarPasswordComponent } from '../pages/cambiar-password/cambiar-password.component';
 
 import { HomeComponent } from '../home/home.component';
+import { VerProductoComponent } from '../pages/ver-producto/ver-producto.component';
 
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: PanelUsuarioComponent, canActivate: [AuthGuard] },
   { path: 'TodosProductos', component: TodosProductosComponent },
+  { path: 'ver-producto/nombre/:nombre', component: VerProductoComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
   { path: 'cambiar-password', component: CambiarPasswordComponent },
   { path: 'genero/:genero', component: TodosProductosComponent },

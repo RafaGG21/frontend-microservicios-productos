@@ -19,12 +19,12 @@
               <div class="row g-0">
                 <div class="col-md-6">
                   <div class="card card-span h-100 text-white"> <img class="img-fluid" src="assets/img/her.png" width="790" alt="..." />
-                    <div class="card-img-overlay d-flex flex-center"> <a class="btn btn-lg btn-light" href="#!">For Her</a></div>
+                    <div class="card-img-overlay d-flex flex-center"> <a class="btn btn-lg btn-light" [routerLink]="['/genero','Mujer']">For Her</a></div>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="card card-span h-100 text-white"> <img class="img-fluid" src="assets/img/him.png" width="790" alt="..." />
-                    <div class="card-img-overlay d-flex flex-center"> <a class="btn btn-lg btn-light" href="#!">For Him </a></div>
+                    <div class="card-img-overlay d-flex flex-center"> <a class="btn btn-lg btn-light" [routerLink]="['/genero','Hombre']">For Him </a></div>
                   </div>
                 </div>
               </div>
@@ -209,7 +209,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-12 d-flex justify-content-center mt-5"> <a class="btn btn-lg btn-dark" href="#!">View All </a></div>
+                <div class="col-12 d-flex justify-content-center mt-5"> <a class="btn btn-lg btn-dark" [routerLink]="['/TodosProductos']">View All </a></div>
               </div>
             </div><!-- end of .container-->
           </section><!-- <section> close ============================-->
