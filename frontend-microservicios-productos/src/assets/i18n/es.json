@@ -22,6 +22,7 @@
   "User":"Usuario",
   "Password":"Contraseña",
   "Olvido_password":"¿Ha olvidado su contraseña? ",
-  "Pulse_aqui":"Pulse aquí para recuperarla"
+  "Pulse_aqui":"Pulse aquí para recuperarla",
+  "Introduce_email":"Introduce tu email para restaurar tu contraseña"
 
 }

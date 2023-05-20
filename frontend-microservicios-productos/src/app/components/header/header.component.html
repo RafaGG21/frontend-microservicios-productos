@@ -25,15 +25,7 @@
                   </mat-option>
                   </mat-autocomplete>
       </mat-form-field>
-      <li class="nav-item dropdown" *ngIf="!estaAutenticado()" style="margin-left: 60px;">
-        <a class="nav-link dropdown-toggle"  id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          {{"Acceso" | translate}}
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" routerLink="/registro">{{"Registro" | translate}}</a>
-          <a class="dropdown-item" routerLink="/login">{{"Iniciar_sesion" | translate}}</a>
-        </div>
-      </li>
+
       <li class="nav-item dropdown"  style="margin-left: 10px;">
         <a class="nav-link dropdown-toggle"  id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           {{"Idiomas" | translate}}

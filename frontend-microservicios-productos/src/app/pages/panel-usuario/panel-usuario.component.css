@@ -1,0 +1,31 @@
+.usuario-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  margin-left: 300px;
+}
+
+.usuario-image {
+  flex: 0 0 auto;
+  margin-right: 20px;
+}
+
+.usuario-image img {
+  width: 300px;
+  border-radius: 50%;
+}
+
+.usuario-details {
+  flex: 1 1 auto;
+}
+
+.usuario-editar {
+  flex: 1 1 auto;
+}
+
+.usuario-name {
+  font-size: 24px;
+  font-weight: bold;
+}

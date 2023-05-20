@@ -4,7 +4,18 @@ nav ul li a:hover {
 }
 
 .carrito{
+  border-radius: 8px;
   transform: translateY(10px);
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+  background-color: rgb(251 251 251);
+  z-index: 9999;
+}
+
+.user-content{
+  border-radius: 8px;
+  transform: translate(-190px,10px);
   width: 200px;
   height: 200px;
   border: 1px solid black;

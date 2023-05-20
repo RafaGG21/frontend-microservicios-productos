@@ -9,6 +9,25 @@
       </ul>
       <div class="btn-group">
         <div class="position-relative">
+          <button mat-icon-button class="btn btn-default" (click)="toggleUserContent()">
+            <mat-icon>person</mat-icon>
+          </button>
+          <div *ngIf="showUserContent" class="user-content position-absolute">
+            <ul  *ngIf="estaAutenticado(); else noAccess">
+              <li><a routerLink="/dashboard">Panel de usuario</a></li>
+              <li><a (click)="cerrarSesion()">Cerrar sesión</a></li>
+            </ul>
+            <ng-template #noAccess>
+              <ul>
+                <li style="margin-top: 10px"><a class="dropdown-item" routerLink="/registro">{{"Registro" | translate}}</a></li>
+                <li style="margin-top: 10px"><a class="dropdown-item" routerLink="/login">{{"Iniciar_sesion" | translate}}</a></li>
+              </ul>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+      <div class="btn-group">
+        <div class="position-relative">
           <button mat-icon-button class="btn btn-default" (click)="toggleCartContent()">
             <mat-icon>shopping_cart</mat-icon>
             <mat-badge [matBadge]="numItemsInCart" matBadgeColor="warn"></mat-badge>
@@ -17,7 +36,9 @@
             <ul *ngIf="numItemsInCart > 0; else noElementsCart">
               <li *ngFor="let item in numItemsInCart"><a href="#">{{item}}</a></li>
             </ul>
-            <ng-template #noElementsCart>No hay añadido nada al carrito</ng-template>
+            <ng-template #noElementsCart>
+              <p style="text-align:center;">No hay añadido nada al carrito</p>
+            </ng-template>
           </div>
         </div>
       </div>

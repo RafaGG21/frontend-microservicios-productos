@@ -76,3 +76,8 @@ nav .dropdown-menu a:hover {
 .custom-form-field .mat-form-field-wrapper.ng-tns-c67-0{
   background-color: #d9d8d8 !important;
 }
+
+nav ul li a:hover {
+  background-color: rgb(12, 11, 11); /* Color de fondo de los enlaces al pasar el mouse por encima */
+  color:white;
+}

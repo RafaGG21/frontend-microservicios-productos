@@ -4,6 +4,7 @@ import { catchError, map, of } from 'rxjs';
 import { HttpHeaders } from '@angular/common/http';
 import { IRespuesta } from '../interfaces/IRespuesta';
 import { IRespuestaToken } from '../interfaces/IRespuestaToken';
+import { IUsuario } from '../interfaces/IUsuario';
 
 @Injectable({
   providedIn: 'root'
@@ -48,5 +49,17 @@ export class AutentificacionService {
     const body = { email, password };
     const url  = `${ this.baseUrl }/editar-password/${id}`;
     return this.http.put<IRespuesta>(url, body)
+  }
+
+  getUsuarioPorEmail(email: string){
+    const url  = `${ this.baseUrl }/email/${email}`;
+    return this.http.get<IUsuario>(url)
+  }
+
+  editarUsuario(id: number, nombre: string, imagen: string) {
+    console.log(imagen)
+    const body = { nombre, imagen };
+    const url  = `${ this.baseUrl }/editar-usuario/${id}`;
+    return this.http.put<IUsuario>(url, body)
   }
 }

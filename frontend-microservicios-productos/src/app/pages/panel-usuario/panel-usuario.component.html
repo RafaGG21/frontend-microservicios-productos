@@ -1,1 +1,14 @@
-<p>panel-usuario works!</p>
+<div class="usuario-container">
+  <div class="usuario-image">
+    <img src="../../../assets/img/icono-usuario-vacio.jpg" *ngIf="usuario && usuario.imagen == null; else imgUser">
+    <ng-template #imgUser>
+      <img [src]="usuario.imagen" >
+    </ng-template>
+  </div>
+  <div class="usuario-details">
+    <h2  *ngIf="usuario" class="usuario-name">{{ usuario.nombre }}</h2>
+  </div>
+  <div class="usuario-editar">
+    <button *ngIf="usuario" type="button" class="btn btn-info" (click)="editarUsuario()">Editar</button>
+  </div>
+</div>

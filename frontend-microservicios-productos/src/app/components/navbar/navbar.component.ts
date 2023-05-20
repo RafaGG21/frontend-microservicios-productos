@@ -12,6 +12,7 @@ export class NavbarComponent {
   autenticado : boolean = this.authService.estaAutenticado()
   numItemsInCart = 0;
   showCartContent = false;
+  showUserContent = false;
 
   constructor(private authService: AutentificacionService,
               private router: Router) { }
@@ -36,4 +37,8 @@ export class NavbarComponent {
     this.showCartContent = !this.showCartContent;
   }
 
+
+  toggleUserContent() {
+    this.showUserContent = !this.showUserContent;
+  }
 }

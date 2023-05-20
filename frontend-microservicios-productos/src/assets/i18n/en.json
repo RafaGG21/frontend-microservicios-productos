@@ -22,5 +22,6 @@
   "User":"User",
   "Password":"Password",
   "Olvido_password":"Have you forgotten your password?",
-  "Pulse_aqui":"Click here to recover the password"
+  "Pulse_aqui":"Click here to recover the password",
+  "Introduce_email":"Write your email to recover your password"
 }
