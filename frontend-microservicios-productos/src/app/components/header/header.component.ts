@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { IProducto } from 'src/app/interfaces/IProducto';
 import { AutentificacionService } from 'src/app/services/autentificacion.service';
 import { ProductosService } from 'src/app/services/productos.service';
@@ -20,7 +21,11 @@ export class HeaderComponent  {
   id!: number
   constructor(private productosService : ProductosService,
               private authService: AutentificacionService,
-              private router: Router) { }
+              private router: Router,
+              public translate: TranslateService) {
+
+              }
+
 
 
   cerrarSesion(){
@@ -60,5 +65,11 @@ export class HeaderComponent  {
     this.router.navigate(['/ver-producto/nombre/', this.termino]);
   }
 
+  usarSpanish(){
+    this.translate.use("es")
+  }
 
+  usarIngles(){
+    this.translate.use('en')
+  }
 }

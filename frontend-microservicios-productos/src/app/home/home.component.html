@@ -5,8 +5,8 @@
     <div class="row flex-center">
       <div class="col-12 mb-10">
         <div class="d-flex align-items-center flex-column">
-          <h1 class="fw-normal"> With an outstanding style, only for you</h1>
-          <h1 class="fs-4 fs-lg-8 fs-md-6 fw-bold">Exclusively designed for you</h1>
+          <h1 class="fw-normal"> {{"TITULO_HOME" | translate}}</h1>
+          <h1 class="fs-4 fs-lg-8 fs-md-6 fw-bold">{{"SUBTITULO_HOME" | translate}}</h1>
         </div>
       </div>
     </div>
@@ -19,12 +19,15 @@
               <div class="row g-0">
                 <div class="col-md-6">
                   <div class="card card-span h-100 text-white"> <img class="img-fluid" src="assets/img/her.png" width="790" alt="..." />
-                    <div class="card-img-overlay d-flex flex-center"> <a class="btn btn-lg btn-light" [routerLink]="['/genero','Mujer']">For Her</a></div>
+                    <div class="card-img-overlay d-flex flex-center"> <a class="btn btn-lg btn-light" [routerLink]="['/genero','Mujer']">
+                      {{"For_her" | translate}}
+                    </a></div>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="card card-span h-100 text-white"> <img class="img-fluid" src="assets/img/him.png" width="790" alt="..." />
-                    <div class="card-img-overlay d-flex flex-center"> <a class="btn btn-lg btn-light" [routerLink]="['/genero','Hombre']">For Him </a></div>
+                    <div class="card-img-overlay d-flex flex-center"> <a class="btn btn-lg btn-light" [routerLink]="['/genero','Hombre']">
+                      {{"For_him" | translate}}</a></div>
                   </div>
                 </div>
               </div>
@@ -40,7 +43,7 @@
             <div class="container">
               <div class="row h-100">
                 <div class="col-lg-7 mx-auto text-center mt-7 mb-5">
-                  <h5 class="fw-bold fs-3 fs-lg-5 lh-sm">Best Deals</h5>
+                  <h5 class="fw-bold fs-3 fs-lg-5 lh-sm">{{"Best_deals" | translate}}</h5>
                 </div>
                 <div class="col-12">
                   <div class="carousel slide" id="carouselBestDeals" data-bs-touch="false" data-bs-interval="false">
@@ -209,7 +212,9 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-12 d-flex justify-content-center mt-5"> <a class="btn btn-lg btn-dark" [routerLink]="['/TodosProductos']">View All </a></div>
+                <div class="col-12 d-flex justify-content-center mt-5"> <a class="btn btn-lg btn-dark" [routerLink]="['/TodosProductos']">
+                  {{"View_all" | translate}}
+                </a></div>
               </div>
             </div><!-- end of .container-->
           </section><!-- <section> close ============================-->
@@ -224,10 +229,10 @@
               <div class="row h-100 g-0">
                 <div class="col-md-6">
                   <div class="bg-300 p-4 h-100 d-flex flex-column justify-content-center">
-                    <h4 class="text-800">Exclusive collection 2021</h4>
-                    <h1 class="fw-semi-bold lh-sm fs-4 fs-lg-5 fs-xl-6">Be exclusive</h1>
-                    <p class="mb-5 fs-1">The best everyday option in a Super Saver range within a reasonable price. It is our responsibility to keep you 100 percent stylish. Be smart &amp; , trendy with us.</p>
-                    <div class="d-grid gap-2 d-md-block"><a class="btn btn-lg btn-dark" href="#" role="button">Explore</a></div>
+                    <h4 class="text-800">{{"Exclusive_collection" | translate}}</h4>
+                    <h1 class="fw-semi-bold lh-sm fs-4 fs-lg-5 fs-xl-6">{{"Be_exclusive" | translate}}</h1>
+                    <p class="mb-5 fs-1">{{"Best_option" | translate}}</p>
+                    <div class="d-grid gap-2 d-md-block"><a class="btn btn-lg btn-dark" href="#" role="button">{{"Explore" | translate}}</a></div>
                   </div>
                 </div>
                 <div class="col-md-6">

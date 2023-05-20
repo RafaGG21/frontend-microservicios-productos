@@ -18,3 +18,11 @@
   justify-content: center;
   margin-top: 50px;
 }
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}

@@ -34,9 +34,16 @@
           <a class="dropdown-item" routerLink="/login">Login</a>
         </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link"  (click)="cerrarSesion()" *ngIf="estaAutenticado()">Cerrar sesión</a>
+      <li class="nav-item dropdown"  style="margin-left: 60px;">
+        <a class="nav-link dropdown-toggle"  id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{"Idiomas" | translate}}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" (click)="usarSpanish()">{{"Spanish" | translate}}</a>
+          <a class="dropdown-item" (click)="usarIngles()">{{"English" | translate}}</a>
+        </div>
       </li>
+
     </ul>
   </div>
 
