@@ -10,6 +10,8 @@ import { AutentificacionService } from 'src/app/services/autentificacion.service
 export class NavbarComponent {
 
   autenticado : boolean = this.authService.estaAutenticado()
+  numItemsInCart = 0;
+  showCartContent = false;
 
   constructor(private authService: AutentificacionService,
               private router: Router) { }
@@ -30,6 +32,8 @@ export class NavbarComponent {
   }
 
 
-
+  toggleCartContent() {
+    this.showCartContent = !this.showCartContent;
+  }
 
 }

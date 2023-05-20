@@ -30,6 +30,10 @@ import { VerProductoComponent } from './pages/ver-producto/ver-producto.componen
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core'
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatBadgeModule } from '@angular/material/badge';
+
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http,'./assets/i18n/','.json')
 }
@@ -50,6 +54,9 @@ export function HttpLoaderFactory(http: HttpClient){
     VerProductoComponent
   ],
   imports: [
+    MatButtonModule,
+    MatIconModule,
+    MatBadgeModule,
     NgxPaginationModule,
     BrowserModule,
     AppRoutingModule,

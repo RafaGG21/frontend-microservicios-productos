@@ -7,7 +7,7 @@
         <a class="nav-link"  routerLink="/home">Home</a>
       </li>
       <mat-form-field class="example-full-width custom-form-field" appearance="fill" style="width: 569px; height: 50px;" >
-        <mat-label >Busqueda</mat-label>
+        <mat-label >{{"Busqueda" | translate}}</mat-label>
         <input type="text" class="clase"
                placeholder="Busca tu producto"
                aria-label="Number"
@@ -27,14 +27,14 @@
       </mat-form-field>
       <li class="nav-item dropdown" *ngIf="!estaAutenticado()" style="margin-left: 60px;">
         <a class="nav-link dropdown-toggle"  id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Acceder
+          {{"Acceso" | translate}}
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" routerLink="/registro">Registro</a>
-          <a class="dropdown-item" routerLink="/login">Login</a>
+          <a class="dropdown-item" routerLink="/registro">{{"Registro" | translate}}</a>
+          <a class="dropdown-item" routerLink="/login">{{"Iniciar_sesion" | translate}}</a>
         </div>
       </li>
-      <li class="nav-item dropdown"  style="margin-left: 60px;">
+      <li class="nav-item dropdown"  style="margin-left: 10px;">
         <a class="nav-link dropdown-toggle"  id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           {{"Idiomas" | translate}}
         </a>

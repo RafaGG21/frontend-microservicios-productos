@@ -72,4 +72,6 @@ export class HeaderComponent  {
   usarIngles(){
     this.translate.use('en')
   }
+
+
 }
