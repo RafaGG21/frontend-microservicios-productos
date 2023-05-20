@@ -18,5 +18,9 @@
   "Iniciar_sesion":"Log in",
   "Registro":"Sign in",
   "Acceso":"Access",
-  "Busqueda":"Search"
+  "Busqueda":"Search",
+  "User":"User",
+  "Password":"Password",
+  "Olvido_password":"Have you forgotten your password?",
+  "Pulse_aqui":"Click here to recover the password"
 }

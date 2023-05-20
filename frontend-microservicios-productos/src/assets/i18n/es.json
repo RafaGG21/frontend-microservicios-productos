@@ -18,5 +18,10 @@
   "Iniciar_sesion":"Iniciar sesión",
   "Registro":"Registrate",
   "Acceso":"Acceso",
-  "Busqueda":"Busqueda"
+  "Busqueda":"Busqueda",
+  "User":"Usuario",
+  "Password":"Contraseña",
+  "Olvido_password":"¿Ha olvidado su contraseña? ",
+  "Pulse_aqui":"Pulse aquí para recuperarla"
+
 }
