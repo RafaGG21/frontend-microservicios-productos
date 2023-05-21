@@ -1,0 +1,54 @@
+<mat-sidenav-container style="width:1900px; height: 900px;">
+  <mat-sidenav #sidenav mode="side" opened="isExpanded">
+    <mat-nav-list>
+
+      <mat-list-item (click)="isExpanded = !isExpanded">
+        <mat-icon mat-list-icon class="chevron-button" [ngClass]="{ rotated: isExpanded }">chevron_right
+        </mat-icon>
+      </mat-list-item>
+      <mat-list-item (click)="isExpanded = !isExpanded">
+          <mat-icon mat-list-icon>
+            <img src="../../../assets/img/icono-usuario-vacio.jpg" *ngIf="usuario && usuario.imagen == null; else imgUser"
+             width="50" height="50" style="border-radius: 50%; " >
+            <ng-template #imgUser>
+              <img [src]="usuario.imagen" width="40" height="40"  style="border-radius: 50%; margin-left: -7px;" >
+            </ng-template>
+          </mat-icon>
+          <span *ngIf="isExpanded" class="menu-item" style="margin-left: 15px;">{{ usuario.nombre }}</span>
+      </mat-list-item>
+      <mat-list-item [routerLink]="'dashboard'">
+        <mat-icon mat-list-icon>shopping_cart </mat-icon>
+        <span *ngIf="isExpanded" class="menu-item">Compras</span>
+      </mat-list-item>
+
+      <mat-list-item [routerLink]="'info'">
+        <mat-icon mat-list-icon>shopping_bag</mat-icon>
+        <span *ngIf="isExpanded" class="menu-item">Ventas</span>
+      </mat-list-item>
+
+      <mat-list-item [routerLink]="'user'">
+        <mat-icon mat-list-icon>favorite</mat-icon>
+        <span *ngIf="isExpanded" class="menu-item">Favoritos</span>
+      </mat-list-item>
+
+      <mat-list-item [routerLink]="'user'">
+        <mat-icon mat-list-icon>mail</mat-icon>
+        <span *ngIf="isExpanded" class="menu-item">Chat</span>
+      </mat-list-item>
+      <mat-list-item [routerLink]="'user'">
+        <button (click)="editarUsuario()">
+        <mat-icon mat-list-icon>edit</mat-icon>
+        <span *ngIf="isExpanded" class="menu-item">Editar usuario</span>
+      </button>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <app-panel-usuario></app-panel-usuario>
+    </mat-toolbar>
+
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

@@ -14,11 +14,12 @@ import { CambiarPasswordComponent } from '../pages/cambiar-password/cambiar-pass
 import { HomeComponent } from '../home/home.component';
 import { VerProductoComponent } from '../pages/ver-producto/ver-producto.component';
 
+import { SidenavComponent} from '../components/sidenav/sidenav.component';
 
 const routes: Routes = [
   { path: 'registro', component: RegistroComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'dashboard', component: PanelUsuarioComponent, canActivate: [AuthGuard] },
+  { path: 'dashboard', component: SidenavComponent, canActivate: [AuthGuard] },
   { path: 'TodosProductos', component: TodosProductosComponent },
   { path: 'ver-producto/nombre/:nombre', component: VerProductoComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
