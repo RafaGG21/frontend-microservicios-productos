@@ -21,6 +21,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: SidenavComponent, canActivate: [AuthGuard] },
   { path: 'TodosProductos', component: TodosProductosComponent },
+  { path: 'ver-producto/:id', component: VerProductoComponent },
   { path: 'ver-producto/nombre/:nombre', component: VerProductoComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
   { path: 'cambiar-password', component: CambiarPasswordComponent },

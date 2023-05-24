@@ -6,4 +6,7 @@ export interface IProducto {
     categoria: string;
     imagen: string;
     descripcion: string;
+    nombreUsuario: string;
+    emailUsuario: string;
+    imagenUsuario: string;
 }
