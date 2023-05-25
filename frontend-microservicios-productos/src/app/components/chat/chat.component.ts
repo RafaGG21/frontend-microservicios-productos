@@ -4,6 +4,9 @@ import { IChat } from 'src/app/interfaces/IChat';
 import { IMensajes } from 'src/app/interfaces/IMensajes';
 import { ChatService } from 'src/app/services/chat.service';
 
+import { Client } from '@stomp/stompjs'
+import * as SockJS from 'sockjs-client'
+
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
@@ -11,13 +14,29 @@ import { ChatService } from 'src/app/services/chat.service';
 })
 
 export class ChatComponent implements OnInit {
+  private client!: Client;
   chat! : IChat
   mensajes: IMensajes[] = [];
-  nuevoMensaje: string = "";
-
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private chatService: ChatService) { }
+  nuevoMensaje!: string;
+  conectado : boolean = false;
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, 
+                      private chatService: ChatService) { }
 
   ngOnInit(): void {
+    this.client = new Client();
+    this.client.webSocketFactory = () => {
+      return new SockJS("http://localhost:8084/chat-websocket")
+    }
+    this.client.onConnect = (frame) => {
+      console.log('Conectado: '+ this.client.connected + ' : ' + frame)
+      this.conectado = true
+
+      this.client.subscribe('/chat/mensaje', e => {
+        let mensaje = JSON.parse(e.body) as IMensajes
+        this.mensajes.push(mensaje)
+      })
+    }
+    this.client.activate();
     this.chatService.getChatPorCompradorYVendedor(this.data.comprador, this.data.vendedor).subscribe(
       chat => {
         if (chat == null ) {
@@ -64,9 +83,13 @@ export class ChatComponent implements OnInit {
         );
       }
     );
+
+  
+  
   }
 
   enviarMensaje(){
+    this.client.publish({'destination': 'app/mensaje', body: JSON.stringify(this.nuevoMensaje)})
     this.chatService.crearMensaje(this.nuevoMensaje , this.chat.id ,this.data.comprador).subscribe( mensaje => {
       this.mensajes.push(mensaje)
     })
