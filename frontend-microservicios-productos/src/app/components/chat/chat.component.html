@@ -1,14 +1,16 @@
 <div class="chat-container">
+  <h2>{{data.vendedor}} - {{data.producto.nombre}} - {{data.producto.precio}} €</h2>
   <div class="chat-messages">
     <div *ngFor="let mensaje of mensajes" class="message-container">
       <div>
-        <div class="message-content">{{ mensaje.contenido }}</div>
+        <div [ngClass]="{'message-content': mensaje.usuarioAutor == this.data.vendedor, 'message-content-other-user': mensaje.usuarioAutor != this.data.vendedor}">{{ mensaje.contenido }}</div>
         <div class="message-sender">{{ mensaje.usuarioAutor }}</div>
       </div>
     </div>
   </div>
   <div class="chat-input">
-    <input [(ngModel)]="nuevoMensaje" placeholder="Escribe un mensaje..." />
-    <button (click)="enviarMensaje()">Enviar</button>
+    <input [(ngModel)]="nuevoMensaje" class="input-mensaje" placeholder="Escribe un mensaje..." />
+    <button class="btn btn-primary" (click)="enviarMensaje()">Enviar</button>
   </div>
+  <h3>Tú: {{data.comprador}}</h3>
 </div>

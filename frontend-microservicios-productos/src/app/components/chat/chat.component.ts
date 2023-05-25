@@ -18,20 +18,52 @@ export class ChatComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private chatService: ChatService) { }
 
   ngOnInit(): void {
-    this.chatService.getChatPorCompradorYVendedor(this.data.comprador, this.data.vendedor).subscribe( chat => {
-      if(chat == null || chat.id == null){
-        console.log("chat nulo")
-        this.chatService.crearChat(this.data.comprador, this.data.vendedor).subscribe( chat => {
-          this.chat = chat
-        })
-      } else {
-        console.log("chat recuperado")
-        this.chat = chat
-        this.chatService.getMensajesChat(this.chat.id).subscribe( mensajes => {
-          this.mensajes =mensajes
-        })
+    this.chatService.getChatPorCompradorYVendedor(this.data.comprador, this.data.vendedor).subscribe(
+      chat => {
+        if (chat == null ) {
+          console.log("Chat nulo. Creando nuevo chat...");
+          this.chatService.crearChat(this.data.comprador, this.data.vendedor).subscribe(
+            newChat => {
+              this.chat = newChat;
+              this.chatService.getMensajesChat(this.chat.id).subscribe(
+                mensajes => {
+                  this.mensajes = mensajes;
+                }
+              );
+            },
+            error => {
+              console.log("Error al crear el chat:", error);
+              // Maneja el error aquí, por ejemplo, mostrando un mensaje de error al usuario
+            }
+          );
+        } else {
+          console.log("Chat recuperado");
+          this.chat = chat;
+          this.chatService.getMensajesChat(this.chat.id).subscribe(
+            mensajes => {
+              this.mensajes = mensajes;
+            }
+          );
+        }
+      },
+      error => {
+        console.log("Error al obtener el chat:", error);
+        this.chatService.crearChat(this.data.comprador, this.data.vendedor).subscribe(
+          newChat => {
+            this.chat = newChat;
+            this.chatService.getMensajesChat(this.chat.id).subscribe(
+              mensajes => {
+                this.mensajes = mensajes;
+              }
+            );
+          },
+          error => {
+            console.log("Error al crear el chat:", error);
+            // Maneja el error aquí, por ejemplo, mostrando un mensaje de error al usuario
+          }
+        );
       }
-    })
+    );
   }
 
   enviarMensaje(){
