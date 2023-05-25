@@ -37,6 +37,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { SidenavComponent} from './components/sidenav/sidenav.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ChatComponent } from './components/chat/chat.component';
 
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http,'./assets/i18n/','.json')
@@ -56,9 +58,11 @@ export function HttpLoaderFactory(http: HttpClient){
     ResetPasswordComponent,
     CambiarPasswordComponent,
     HeaderComponent,
-    VerProductoComponent
+    VerProductoComponent,
+    ChatComponent
   ],
   imports: [
+    MatDialogModule,
     MatListModule,
     MatToolbarModule,
     MatSidenavModule,

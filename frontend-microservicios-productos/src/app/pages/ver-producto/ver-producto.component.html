@@ -6,6 +6,6 @@
     <h2 class="product-name">{{ producto.nombre }}</h2>
     <p class="product-description">{{producto.descripcion}}</p>
     <p class="product-price">{{ producto.precio }} €</p>
-    <p class="product-price">{{ producto.nombreUsuario }}</p>
+    <p class="product-price" (click)="openDialog(producto)">Contacta con {{ producto.nombreUsuario }}</p>
   </div>
 </div>

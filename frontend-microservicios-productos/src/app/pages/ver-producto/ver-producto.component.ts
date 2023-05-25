@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IProducto } from 'src/app/interfaces/IProducto';
 import { ProductosService } from 'src/app/services/productos.service';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { ChatComponent } from 'src/app/components/chat/chat.component';
 
 @Component({
   selector: 'app-ver-producto',
@@ -13,7 +15,8 @@ export class VerProductoComponent implements OnInit {
   producto!:IProducto
 
   constructor(private productosService : ProductosService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private dialog: MatDialog) { }
 
   ngOnInit() :void {
     this.route.params.subscribe(params => {
@@ -24,4 +27,10 @@ export class VerProductoComponent implements OnInit {
   })
 }
 
+openDialog(producto: IProducto) {
+    const dialogRef = this.dialog.open(ChatComponent, {
+      width: '800px',
+      data: { producto: producto, comprador: sessionStorage.getItem("nombre"), vendedor: producto.nombreUsuario }
+    });
+  }
 }

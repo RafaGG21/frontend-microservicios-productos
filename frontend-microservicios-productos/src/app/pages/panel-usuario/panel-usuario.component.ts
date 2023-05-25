@@ -21,6 +21,7 @@ export class PanelUsuarioComponent implements OnInit {
     this.authService.getUsuarioPorEmail(this.email).subscribe(usuario => {
       this.usuario = usuario
       this.id = usuario.id
+      sessionStorage.setItem("nombre", usuario.nombre)
       console.log(usuario.id)
     })
   }

@@ -16,6 +16,7 @@ import { VerProductoComponent } from '../pages/ver-producto/ver-producto.compone
 
 import { SidenavComponent} from '../components/sidenav/sidenav.component';
 
+
 const routes: Routes = [
   { path: 'registro', component: RegistroComponent },
   { path: 'login', component: LoginComponent },
