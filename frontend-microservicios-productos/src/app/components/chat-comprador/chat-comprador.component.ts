@@ -7,19 +7,22 @@ import { ChatService } from 'src/app/services/chat.service';
 import { Client } from '@stomp/stompjs'
 import * as SockJS from 'sockjs-client'
 import { interval } from 'rxjs';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-chat-comprador',
   templateUrl: './chat-comprador.component.html',
   styleUrls: ['./chat-comprador.component.css']
 })
 export class ChatCompradorComponent implements OnInit {
+  mensajeForm!: FormGroup;
   private client!: Client;
   chat! : IChat
   mensajes: IMensajes[] = [];
   nuevoMensaje!: string;
   conectado : boolean = false;
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, 
-                      private chatService: ChatService) { }
+                      private chatService: ChatService,
+                      private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.client = new Client();
@@ -48,6 +51,10 @@ export class ChatCompradorComponent implements OnInit {
       }
     });
 
+    this.mensajeForm = this.formBuilder.group({
+      mensaje: ['', Validators.required]
+    });
+
     
     interval(1000).subscribe(() => {
       this.chatService.getMensajesChat(this.chat.id).subscribe(
@@ -58,10 +65,16 @@ export class ChatCompradorComponent implements OnInit {
   }
 
   enviarMensaje(){
-    this.client.publish({'destination': 'app/mensaje', body: JSON.stringify(this.nuevoMensaje)})
-    this.chatService.crearMensaje(this.nuevoMensaje , this.chat.id ,this.data.chat.vendedor).subscribe( mensaje => {
+    const { mensaje } = this.mensajeForm.value;
+    this.client.publish({'destination': 'app/mensaje', body: JSON.stringify(mensaje)})
+    this.chatService.crearMensaje(mensaje , this.chat.id ,this.data.chat.vendedor).subscribe( mensaje => {
       this.mensajes.push(mensaje)
     })
+    this.mensajeForm.patchValue({
+      mensaje: ''
+    });
+    
+
   }
 
 }

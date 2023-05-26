@@ -7,6 +7,7 @@ import { ChatService } from 'src/app/services/chat.service';
 import { Client } from '@stomp/stompjs'
 import * as SockJS from 'sockjs-client'
 import { interval } from 'rxjs';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-chat',
@@ -15,15 +16,18 @@ import { interval } from 'rxjs';
 })
 
 export class ChatComponent implements OnInit {
+  mensajeForm!: FormGroup;
   private client!: Client;
   chat! : IChat
   mensajes: IMensajes[] = [];
   nuevoMensaje!: string;
   conectado : boolean = false;
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, 
-                      private chatService: ChatService) { }
+                      private chatService: ChatService,
+                      private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+
     this.client = new Client();
     this.client.webSocketFactory = () => {
       return new SockJS("http://localhost:8084/chat-websocket")
@@ -84,7 +88,10 @@ export class ChatComponent implements OnInit {
         );
       }
     );
-
+    this.mensajeForm = this.formBuilder.group({
+      mensaje: ['', Validators.required]
+ 
+    });
   
     interval(1000).subscribe(() => {
       this.chatService.getMensajesChat(this.chat.id).subscribe(
@@ -95,9 +102,13 @@ export class ChatComponent implements OnInit {
   }
 
   enviarMensaje(){
+    const { mensaje } = this.mensajeForm.value;
     this.client.publish({'destination': 'app/mensaje', body: JSON.stringify(this.nuevoMensaje)})
-    this.chatService.crearMensaje(this.nuevoMensaje , this.chat.id ,this.data.comprador).subscribe( mensaje => {
+    this.chatService.crearMensaje(mensaje , this.chat.id ,this.data.comprador).subscribe( mensaje => {
       this.mensajes.push(mensaje)
     })
+    this.mensajeForm.patchValue({
+      mensaje: ''
+    });
   }
 }

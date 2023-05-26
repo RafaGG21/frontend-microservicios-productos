@@ -9,8 +9,10 @@
     </div>
   </div>
   <div class="chat-input">
-    <input [(ngModel)]="nuevoMensaje" class="input-mensaje" placeholder="Escribe un mensaje..." />
-    <button class="btn btn-primary" (click)="enviarMensaje()">Enviar</button>
+    <form [formGroup]="mensajeForm" (submit)="enviarMensaje()">
+      <input  class="input-mensaje" name="mensaje" formControlName="mensaje" placeholder="Escribe un mensaje..." style="width: 640px"/>
+      <button class="btn btn-primary" >Enviar</button>
+  </form>
   </div>
   <h3>Tú: {{data.comprador}}</h3>
 </div>
