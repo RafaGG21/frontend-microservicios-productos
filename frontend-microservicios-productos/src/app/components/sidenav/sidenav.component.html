@@ -31,7 +31,7 @@
         <span *ngIf="isExpanded" class="menu-item">Favoritos</span>
       </mat-list-item>
 
-      <mat-list-item [routerLink]="'user'">
+      <mat-list-item (click)="mostrarChats()">
         <mat-icon mat-list-icon>mail</mat-icon>
         <span *ngIf="isExpanded" class="menu-item">Chat</span>
       </mat-list-item>
@@ -47,6 +47,7 @@
   <mat-sidenav-content>
     <mat-toolbar>
       <app-panel-usuario></app-panel-usuario>
+      <app-lista-chats *ngIf="activarChats"></app-lista-chats>
     </mat-toolbar>
 
   </mat-sidenav-content>

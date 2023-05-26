@@ -39,6 +39,8 @@ import { MatListModule } from '@angular/material/list';
 import { SidenavComponent} from './components/sidenav/sidenav.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ChatComponent } from './components/chat/chat.component';
+import { ListaChatsComponent } from './components/lista-chats/lista-chats.component';
+import { ChatCompradorComponent } from './components/chat-comprador/chat-comprador.component';
 
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http,'./assets/i18n/','.json')
@@ -46,6 +48,7 @@ export function HttpLoaderFactory(http: HttpClient){
 
 @NgModule({
   declarations: [
+    ChatCompradorComponent,
     SidenavComponent,
     AppComponent,
     HomeComponent,
@@ -59,7 +62,8 @@ export function HttpLoaderFactory(http: HttpClient){
     CambiarPasswordComponent,
     HeaderComponent,
     VerProductoComponent,
-    ChatComponent
+    ChatComponent,
+    ListaChatsComponent
   ],
   imports: [
     MatDialogModule,

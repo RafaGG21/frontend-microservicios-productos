@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
 export class SidenavComponent implements OnInit {
 
   constructor(private authService: AutentificacionService) { }
-
+  activarChats : boolean = false
   email: any
   id!:number;
   usuario!: IUsuario;
@@ -85,4 +85,7 @@ export class SidenavComponent implements OnInit {
     });
   }
 
+  mostrarChats(){
+    this.activarChats = !this.activarChats
+  }
 }

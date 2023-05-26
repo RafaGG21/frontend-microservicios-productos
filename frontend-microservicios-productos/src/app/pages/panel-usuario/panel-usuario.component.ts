@@ -22,7 +22,6 @@ export class PanelUsuarioComponent implements OnInit {
       this.usuario = usuario
       this.id = usuario.id
       sessionStorage.setItem("nombre", usuario.nombre)
-      console.log(usuario.id)
     })
   }
 

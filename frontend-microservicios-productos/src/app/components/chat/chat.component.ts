@@ -6,6 +6,7 @@ import { ChatService } from 'src/app/services/chat.service';
 
 import { Client } from '@stomp/stompjs'
 import * as SockJS from 'sockjs-client'
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-chat',
@@ -85,7 +86,12 @@ export class ChatComponent implements OnInit {
     );
 
   
-  
+    interval(1000).subscribe(() => {
+      this.chatService.getMensajesChat(this.chat.id).subscribe(
+        mensajes => {
+          this.mensajes = mensajes;
+        }
+      )});
   }
 
   enviarMensaje(){

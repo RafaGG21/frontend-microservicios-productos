@@ -29,4 +29,12 @@ export class ChatService {
     const body = { contenido, chat_id,usuarioAutor }
     return this.http.post<IMensajes>( url, body)
   }
+
+  getChatsVendedor(vendedor: string){
+    return this.http.get<IChat>(`${this.baseUrl}/recuperar-chats-vendedor/${vendedor}`)
+  }
+
+  getChatsId(id: number){
+    return this.http.get<IChat>(`${this.baseUrl}/ver-chat/${id}`)
+  }
 }

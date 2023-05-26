@@ -15,6 +15,8 @@ import { HomeComponent } from '../home/home.component';
 import { VerProductoComponent } from '../pages/ver-producto/ver-producto.component';
 
 import { SidenavComponent} from '../components/sidenav/sidenav.component';
+import { ListaChatsComponent } from './lista-chats/lista-chats.component';
+
 
 
 const routes: Routes = [
@@ -28,12 +30,12 @@ const routes: Routes = [
   { path: 'cambiar-password', component: CambiarPasswordComponent },
   { path: 'genero/:genero', component: TodosProductosComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'lista-chats', component: ListaChatsComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full', }
 ];
 
 @NgModule({
   declarations: [
-
   ],
   imports: [
     RouterModule.forChild(routes),
